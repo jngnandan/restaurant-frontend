@@ -218,7 +218,7 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-          <IconGardenCart size={20} color='gray'/>
+          <IconGardenCart size={24} color='gray'/>
 
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
