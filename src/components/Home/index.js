@@ -6,10 +6,14 @@ import 'react-multi-carousel/lib/styles.css';
 import {CardWithStats} from '../CardWithStats'
 
 import Food from '../Food';
-import Footer from '../Footer';
+        
+import Footer from '../Footer'
+
 
 import { Link, useNavigate } from 'react-router-dom';
 import { Hero } from '../Hero';
+
+import { FeaturesCards } from '../FeatureCards';
 
 const images = [
   {
@@ -139,6 +143,8 @@ function Home() {
     ))}
   </div>
 
+  <FeaturesCards/>
+
 {/* Reviews */}
 <h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-xl md:text-5xl lg:text-2xl dark:text-white">Our customer reviews</h1>
 
@@ -221,16 +227,7 @@ function Home() {
         </div>
 </div>
 
-     
-
-
-
-
-
-
-
-          <Footer />
-        
+             
       
         </div>
     );

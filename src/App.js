@@ -15,6 +15,7 @@ import {SignupForm} from './components/SignupForm'
 import {CardWithStats} from './components/CardWithStats'
 import {CardsCarousel} from './components/CardsCarousel'
 import {Contact} from './components/Contact';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route exact path='/card' element={<CardsCarousel/>}/>
         <Route exact path='/contact' element={<Contact/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
