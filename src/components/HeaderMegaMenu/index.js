@@ -28,6 +28,7 @@ import {
   IconFingerprint,
   IconCoin,
   IconChevronDown,
+  IconGardenCart
 } from '@tabler/icons-react';
 
 import { Link } from 'react-router-dom';
@@ -217,6 +218,8 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
+          <IconGardenCart size={20} color='gray'/>
+
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>

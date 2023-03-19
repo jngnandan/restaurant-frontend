@@ -132,7 +132,7 @@ export default function FoodItem() {
           </Text>
         </div>
 
-        <Button className='bg-blue-500' radius="md">Buy now</Button>
+        <Button className='bg-blue-500' radius="md">Add to Cart</Button>
       </Group>
     </Card>
   );
