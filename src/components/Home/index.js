@@ -131,7 +131,7 @@ function Home() {
 <h1 class="block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Taste Arabic Food</h1>
 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
 
-  <div className='grid grid-cols-3 gap-3'>
+  <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
     {foodList.map(eachitem => (
       <Link to={`food/${eachitem.id}`}>
             <CardWithStats/>
