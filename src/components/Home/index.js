@@ -8,6 +8,7 @@ import {CardWithStats} from '../CardWithStats'
 import Food from '../Food';
         
 import Footer from '../Footer'
+import Reviews from '../Reviews'
 
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -144,87 +145,21 @@ function Home() {
   </div>
 
   <FeaturesCards/>
+  
+
 
 {/* Reviews */}
 <h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-xl md:text-5xl lg:text-2xl dark:text-white">Our customer reviews</h1>
+<div className='grid grid-cols-2 gap-2'>
+  <Reviews title='John' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
+  <Reviews title='Hether' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
+  <Reviews title='Pager' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
+  <Reviews title='Levis' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
+  <Reviews title='Stewar' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
+  <Reviews title='Xavier' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
 
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-      <div class="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p class="text-gray-600 dark:text-white">
-              <span class="text-lg font-bold text-indigo-500">
-                  “
-              </span>
-              To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
-              <span class="text-lg font-bold text-indigo-500">
-                  ”
-              </span>
-          </p>
-          <div class="flex items-center mt-4">
-              <a href="#" class="relative block">
-                  <img alt="profil" src="http://loremflickr.com/60/60/profile" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-              </a>
-              <div class="flex flex-col justify-between ml-2">
-                  <span class="text-sm font-semibold text-indigo-500">
-                      Jean Miguel
-                  </span>
-                  <span class="flex items-center text-xs dark:text-gray-400">
-                      User of Tail-Kit
-                  </span>
-              </div>
-          </div>
-      </div>
-      
-      <div class="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p class="text-gray-600 dark:text-white">
-              <span class="text-lg font-bold text-indigo-500">
-                  “
-              </span>
-              To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
-              <span class="text-lg font-bold text-indigo-500">
-                  ”
-              </span>
-          </p>
-          <div class="flex items-center mt-4">
-              <a href="#" class="relative block">
-                  <img alt="profil" src="http://loremflickr.com/60/60/profile" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-              </a>
-              <div class="flex flex-col justify-between ml-2">
-                  <span class="text-sm font-semibold text-indigo-500">
-                      Jean Miguel
-                  </span>
-                  <span class="flex items-center text-xs dark:text-gray-400">
-                      User of Tail-Kit
-                  </span>
-              </div>
-          </div>
-      </div>
-
-      <div class="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p class="text-gray-600 dark:text-white">
-              <span class="text-lg font-bold text-indigo-500">
-                  “
-              </span>
-              To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
-              <span class="text-lg font-bold text-indigo-500">
-                  ”
-              </span>
-          </p>
-          <div class="flex items-center mt-4">
-              <a href="#" class="relative block">
-                  <img alt="profil" src="http://loremflickr.com/60/60/profile" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-              </a>
-              <div class="flex flex-col justify-between ml-2">
-                  <span class="text-sm font-semibold text-indigo-500">
-                      Jean Miguel
-                  </span>
-                  <span class="flex items-center text-xs dark:text-gray-400">
-                      User of Tail-Kit
-                  </span>
-              </div>
-          </div>
-      </div>
-
-        </div>
+  </div>
+   
 </div>
 
              
