@@ -61,7 +61,7 @@ interface ImageCardProps {
   comments: number;
 }
 
-export function CardWithStats({ image, title, author, views, comments, link }: ImageCardProps) {
+export function CardWithStats({ image, title, author, views, comments, link, pic }: ImageCardProps) {
   const { classes, theme } = useStyles();
 
 
@@ -76,7 +76,7 @@ export function CardWithStats({ image, title, author, views, comments, link }: I
       href={link}
       target="_blank"
     >
-      <div className={classes.image} style={{ backgroundImage: `url(${'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'})` }} />
+      <div className={classes.image} style={{ backgroundImage: `url(${pic})` }} />
       <div className={classes.overlay} />
 
       <div className={classes.content}>

@@ -61,51 +61,51 @@ function Home() {
     const foodList = [
         {id: 1,
          name: 'Food 1',
-         pic: 'http://loremflickr.com/1800/1800/Food',
-         price: 10,
+         pic: 'https://source.unsplash.com/400x400/?burger,pizza',
+         price: '£10',
         },
         {id: 2,
             name: 'Food 2',
-            pic: 'http://loremflickr.com/1800/1800/Food',
-            price: 20,
-        },
+            pic: 'https://source.unsplash.com/400x400/?burger,meal',
+            price: '£20',
+          },
         {id: 3,
             name: 'Food 3',
-            pic: 'http://loremflickr.com/1800/1800/Food',
-            price: 15,
-           },
+            pic: 'https://source.unsplash.com/400x400/?dinner,pizza',
+            price: '£30',
+          },
            {id: 4,
             name: 'Food 3',
-            pic: 'http://loremflickr.com/1800/1800/Food',
-            price: 15,
-           },
+            pic: 'https://source.unsplash.com/400x400/?arabic,food',
+            price: '£15',
+          },
            {id: 5,
             name: 'Food 3',
-            pic: 'http://loremflickr.com/1800/1800/Food',
-            price: 15,
-           },
+            pic: 'https://source.unsplash.com/400x400/?food,breakfast',
+            price: '£5',
+          },
            {id: 6,
             name: 'Food 3',
-            pic: 'http://loremflickr.com/1800/1800/Food',
-            price: 15,
-           }
+            pic: 'https://source.unsplash.com/400x400/?chicken,food',
+            price: '£25',
+          }
     ]
 
     const blogList = [
       {id: 1,
        name: 'Blog 1',
        pic: 'http://loremflickr.com/1800/1800/Food',
-       price: 10,
+       price: '£10',
       },
       {id: 2,
           name: 'Blog 2',
           pic: 'http://loremflickr.com/1800/1800/Food',
-          price: 20,
+          price: '£15',
       },
       {id: 3,
           name: 'Blog 3',
           pic: 'http://loremflickr.com/1800/1800/Food',
-          price: 15,
+          price: '£20',
          },    
   ]
   const navigate = useNavigate()
@@ -139,7 +139,7 @@ function Home() {
   <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
     {foodList.map(eachitem => (
       <Link to={`food/${eachitem.id}`}>
-            <CardWithStats/>
+            <CardWithStats title={eachitem.name} pic={eachitem.pic} author={eachitem.price} comments={10} views={120}/>
       </Link>
     ))}
   </div>

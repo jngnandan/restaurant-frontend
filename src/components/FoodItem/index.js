@@ -1,6 +1,7 @@
 import { createStyles, Image, Card, Text, Group, Button, getStylesRef, rem } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { IconStar } from '@tabler/icons-react';
+import { useParams } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   price: {
@@ -33,15 +34,54 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const images = [
-  'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
-  'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
-  'https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
-  'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
-  'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
+  'https://source.unsplash.com/800x400/?burger,pizza',
+  'https://source.unsplash.com/800x400/?burger,meal',
+  'https://source.unsplash.com/800x400/?arabic,meal',
+  'https://source.unsplash.com/800x400/?biryani,meal',
+  'https://source.unsplash.com/800x400/?food,fastfood',
 ];
+
+const foodList = [
+  {id: 1,
+   name: 'Food 1',
+   pic: 'https://source.unsplash.com/400x400/?burger,pizza',
+   price: '£10',
+  },
+  {id: 2,
+      name: 'Food 2',
+      pic: 'https://source.unsplash.com/400x400/?burger,meal',
+      price: '£20',
+    },
+  {id: 3,
+      name: 'Food 3',
+      pic: 'https://source.unsplash.com/400x400/?dinner,pizza',
+      price: '£30',
+    },
+     {id: 4,
+      name: 'Food 3',
+      pic: 'https://source.unsplash.com/400x400/?arabic,food',
+      price: '£15',
+    },
+     {id: 5,
+      name: 'Food 3',
+      pic: 'https://source.unsplash.com/400x400/?food,breakfast',
+      price: '£5',
+    },
+     {id: 6,
+      name: 'Food 3',
+      pic: 'https://source.unsplash.com/400x400/?chicken,food',
+      price: '£25',
+    }
+]
 
 export default function FoodItem() {
   const { classes } = useStyles();
+
+  const {id} = useParams()
+  console.log(id)
+
+  const foodItem = foodList.find(eachitem => eachitem.id == id)
+  console.log(foodItem.pic)
 
   const slides = images.map((image) => (
     <Carousel.Slide key={image}>
@@ -67,13 +107,13 @@ export default function FoodItem() {
 
       <Group position="apart" mt="lg">
         <Text fw={500} fz="lg">
-          Forde, Norway
+          {foodItem.name}
         </Text>
 
         <Group spacing={5}>
           <IconStar size="1rem" />
           <Text fz="xs" fw={500}>
-            4.78
+            4.5
           </Text>
         </Group>
       </Group>
@@ -84,7 +124,7 @@ export default function FoodItem() {
       <Group position="apart" mt="md">
         <div>
           <Text fz="xl" span fw={500} className={classes.price}>
-            £20
+            {foodItem.price}
           </Text>
           <Text span fz="sm" c="dimmed">
             {' '}
