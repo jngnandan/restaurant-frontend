@@ -14,6 +14,8 @@ import {ForgotPassword} from './components/ForgotPassword'
 import {SignupForm} from './components/SignupForm'
 import {CardWithStats} from './components/CardWithStats'
 import {CardsCarousel} from './components/CardsCarousel'
+import {Contact} from './components/Contact';
+
 
 function App() {
   return (
@@ -29,7 +31,7 @@ function App() {
         <Route exact path='/forget' element={<ForgotPassword/>}/>
         <Route exact path='/signup' element={<SignupForm/>}/>
         <Route exact path='/card' element={<CardsCarousel/>}/>
-
+        <Route exact path='/contact' element={<Contact/>}/>
       </Routes>
     </BrowserRouter>
   );

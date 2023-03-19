@@ -209,7 +209,10 @@ export function HeaderMegaMenu() {
               Learn
             </a>
             <a href="#" className={classes.link}>
-              Academy
+            <Link to='/contact'>
+              Contact
+              </Link>
+
             </a>
           </Group>
 
@@ -252,7 +255,9 @@ export function HeaderMegaMenu() {
             Learn
           </a>
           <a href="#" className={classes.link}>
-            Academy
+            <Link to='/contact'>
+            Contact
+            </Link>
           </a>
 
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
@@ -261,7 +266,9 @@ export function HeaderMegaMenu() {
             <Link to='/login'>
             <Button variant="default">Log in</Button>
             </Link>
+            <Link to='/signup'>
             <Button>Sign up</Button>
+            </Link>
           </Group>
         </ScrollArea>
       </Drawer>
