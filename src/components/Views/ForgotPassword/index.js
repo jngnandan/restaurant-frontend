@@ -59,7 +59,7 @@ import {
               </Center>
               </Link>
             </Anchor>
-            <Button className={classes.control}>Reset password</Button>
+            <Button className='bg-blue-500'>Reset password</Button>
           </Group>
         </Paper>
       </Container>

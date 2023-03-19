@@ -157,12 +157,12 @@ export function HeaderMegaMenu() {
           </Link>
 
           <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
-            <a href="#" className={classes.link}>
+            <a href="/" className={classes.link}>
               Home
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
-                <a href="#" className={classes.link}>
+                <a href="" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
                       Features
@@ -205,22 +205,24 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-            <Link to='/contact'>
-              Contact
-              </Link>
 
+            <a href="/about" className={classes.link}>
+                About
             </a>
+
+            <a href="/contact" className={classes.link}>
+              Contact
+            </a>
+
           </Group>
 
           <Group className={classes.hiddenMobile}>
             <Link to='/login'>
-            <Button variant="default">Log in</Button>
+            <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
-            <Button>Sign up</Button>
+            <Link to='/signup'>
+            <Button variant='filled' className='bg-blue-500'>Sign up</Button>
+            </Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -232,16 +234,19 @@ export function HeaderMegaMenu() {
         onClose={closeDrawer}
         size="100%"
         padding="md"
-        title="Navigation"
+        title="Home"
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >
         <ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
-
-          <a href="#" className={classes.link}>
-            Home
+          
+          <Link to='/menu'>
+          <a href="/menu" onClick={toggleDrawer} className={classes.link}>
+            Menu
           </a>
+          </Link>
+
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
@@ -251,23 +256,23 @@ export function HeaderMegaMenu() {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            <Link to='/contact'>
+            <a href="/about" onClick={toggleDrawer} className={classes.link}>
+            About
+            </a>
+
+          <a href="/contact" onClick={toggleDrawer} className={classes.link}>
             Contact
-            </Link>
           </a>
+
 
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
             <Link to='/login'>
-            <Button variant="default">Log in</Button>
+            <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
             <Link to='/signup'>
-            <Button>Sign up</Button>
+            <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
           </Group>
         </ScrollArea>

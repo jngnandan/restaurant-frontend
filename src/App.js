@@ -1,22 +1,20 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Header from './components/Header';
+import Home from './components/Views/Home';
 import {HeaderMegaMenu} from './components/HeaderMegaMenu'
 // import { CardsCarousel } from './components/FeaturesCard';
 import { FeaturesCard } from './components/HeaderMegaMenu';
 import FoodItem from './components/FoodItem';
-import Profile from './components/Profile';
+import Profile from './components/Views/Profile';
 import ProtectedRoute from './components/ProtectedRoute.js';
-import {AuthenticationForm} from './components/AuthenticationForm';
-import Start from './components/Start'
-import {ForgotPassword} from './components/ForgotPassword'
-import {SignupForm} from './components/SignupForm'
+import {AuthenticationForm} from './components/Views/AuthenticationForm';
+import {ForgotPassword} from './components/Views/ForgotPassword'
+import {SignupForm} from './components/Views/SignupForm'
 import {CardWithStats} from './components/CardWithStats'
 import {CardsCarousel} from './components/CardsCarousel'
-import {Contact} from './components/Contact';
+import {Contact} from './components/Views/Contact';
 import Footer from './components/Footer';
-
+import Menu from './components/Views/Menu';
 
 function App() {
   return (
@@ -28,11 +26,11 @@ function App() {
         <Route path='/Food/:id' element={<FoodItem/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/login' element={<AuthenticationForm/>}/>
-        <Route exact path='/start' element={<Start />}/>
         <Route exact path='/forget' element={<ForgotPassword/>}/>
         <Route exact path='/signup' element={<SignupForm/>}/>
         <Route exact path='/card' element={<CardsCarousel/>}/>
         <Route exact path='/contact' element={<Contact/>}/>
+        <Route exact path='/menu' element={<Menu/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

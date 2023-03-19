@@ -24,7 +24,7 @@ const useStyles = createStyles((theme) => ({
 
   carouselIndicator: {
     width: rem(4),
-    height: rem(4),
+    height: rem(6),
     transition: 'width 250ms ease',
 
     '&[data-active]': {

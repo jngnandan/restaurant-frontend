@@ -1,4 +1,5 @@
 import { Title, Text, Container, Button, Overlay, createStyles, rem } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -93,6 +94,8 @@ const useStyles = createStyles((theme) => ({
 export function Hero() {
   const { classes, cx } = useStyles();
 
+  const navigate = useNavigate()
+
   return (
     <div className={classes.wrapper}>
       <Overlay color="#000" opacity={0.65} zIndex={1} />
@@ -115,7 +118,7 @@ export function Hero() {
           <Button className={classes.control} variant="white"  size="lg">
             Get started
           </Button>
-          <Button className={cx(classes.control, classes.secondaryControl)} size="lg">
+          <Button onClick={() => navigate('/menu')} className={cx(classes.control, classes.secondaryControl)} size="lg">
             View Menu
           </Button>
         </div>

@@ -3,18 +3,19 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
-import {CardWithStats} from '../CardWithStats'
+import {CardWithStats} from '../../CardWithStats'
 
-import Food from '../Food';
+import Food from '../../Food';
         
-import Footer from '../Footer'
-import Reviews from '../Reviews'
+import Footer from '../../Footer'
+import Reviews from '../../Reviews'
 
 
 import { Link, useNavigate } from 'react-router-dom';
-import { Hero } from '../Hero';
+import { Hero } from '../../Hero';
 
-import { FeaturesCards } from '../FeatureCards';
+import { FeaturesCards } from '../../FeatureCards';
+import { Button } from '@mantine/core';
 
 const images = [
   {
@@ -122,16 +123,7 @@ function Home() {
 
     return (
         <div>
-        {/* <Carousel showThumbs={false} autoPlay infiniteLoop>
-          {foodList.map((image, index) => (
-            <div key={index}>
-            <img className={classes.image} src={image.pic} alt={image.alt} />
-            </div>
-          ))}
-        </Carousel> */}
         <Hero/>
-
-
 <div className='m-6 mt-16'>
 <h1 class="block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Taste Arabic Food</h1>
 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
@@ -143,6 +135,11 @@ function Home() {
       </Link>
     ))}
   </div>
+  <div className='flex flex-row justify-end items-end mt-3'>
+    <Link to='/menu'>
+    <Button variant='subtle'>View More</Button>
+    </Link>
+    </div>
 
   <FeaturesCards/>
   
@@ -150,7 +147,7 @@ function Home() {
 
 {/* Reviews */}
 <h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-3xl dark:text-white">Our customer reviews</h1>
-<div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
   <Reviews title='John' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Hether' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Pager' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
