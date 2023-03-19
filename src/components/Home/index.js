@@ -149,8 +149,8 @@ function Home() {
 
 
 {/* Reviews */}
-<h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-xl md:text-5xl lg:text-2xl dark:text-white">Our customer reviews</h1>
-<div className='grid grid-cols-2 gap-2'>
+<h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-3xl dark:text-white">Our customer reviews</h1>
+<div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
   <Reviews title='John' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Hether' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Pager' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
