@@ -13,21 +13,21 @@ import {
   
   const mockdata = [
     {
-      title: 'Extreme performance',
+      title: 'Native Food',
       description:
-        'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
+        'We provide best Arabic food in East London',
       icon: IconGauge,
     },
     {
-      title: 'Privacy focused',
+      title: 'Immediate Delivery',
       description:
         'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
       icon: IconUser,
     },
     {
-      title: 'No third parties',
+      title: 'Personalised Service',
       description:
-        'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
+        'They’re popular, but they’re rare. Cheff who show them off recklessly may be targeted by thieves',
       icon: IconCookie,
     },
   ];
@@ -94,7 +94,7 @@ import {
       <Container size="lg" py="xl" mt={8}>
         <Group position="center">
           <Badge variant="filled" size="lg">
-            Best company ever
+            Best Arabic Restaurant
           </Badge>
         </Group>
   
