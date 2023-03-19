@@ -1,105 +1,99 @@
-import { Card, Image, Text, Group, Badge, createStyles, Center, Button, rem } from '@mantine/core';
-import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons-react';
+import { createStyles, Image, Card, Text, Group, Button, getStylesRef, rem } from '@mantine/core';
+import { Carousel } from '@mantine/carousel';
+import { IconStar } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+  price: {
+    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
   },
 
-  imageSection: {
-    padding: theme.spacing.md,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+  carousel: {
+    '&:hover': {
+      [`& .${getStylesRef('carouselControls')}`]: {
+        opacity: 1,
+      },
+    },
   },
 
-  label: {
-    marginBottom: theme.spacing.xs,
-    lineHeight: 1,
-    fontWeight: 700,
-    fontSize: theme.fontSizes.xs,
-    letterSpacing: rem(-0.25),
-    textTransform: 'uppercase',
+  carouselControls: {
+    ref: getStylesRef('carouselControls'),
+    transition: 'opacity 150ms ease',
+    opacity: 0,
   },
 
-  section: {
-    padding: theme.spacing.md,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-  },
+  carouselIndicator: {
+    width: rem(4),
+    height: rem(4),
+    transition: 'width 250ms ease',
 
-  icon: {
-    marginRight: rem(5),
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
+    '&[data-active]': {
+      width: rem(16),
+    },
   },
 }));
 
-const mockdata = [
-  { label: '4 passengers', icon: IconUsers },
-  { label: '100 km/h in 4 seconds', icon: IconGauge },
-  { label: 'Automatic gearbox', icon: IconManualGearbox },
-  { label: 'Electric', icon: IconGasStation },
+const images = [
+  'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
+  'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
+  'https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
+  'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
+  'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=160',
 ];
 
-export function FoodItem(props) {
-    console.log(props)
-
+export default function FoodItem() {
   const { classes } = useStyles();
-  const features = mockdata.map((feature) => (
-    <Center key={feature.label}>
-      <feature.icon size="1.05rem" className={classes.icon} stroke={1.5} />
-      <Text size="xs">{feature.label}</Text>
-    </Center>
+
+  const slides = images.map((image) => (
+    <Carousel.Slide key={image}>
+      <Image src={image} height={220} />
+    </Carousel.Slide>
   ));
 
   return (
-    <Card withBorder radius="md" className={classes.card}>
-      <Card.Section className={classes.imageSection}>
-        <Image src="https://i.imgur.com/ZL52Q2D.png" alt="Tesla Model S" />
+    <Card radius="md" withBorder padding="xl">
+      <Card.Section>
+        <Carousel
+          withIndicators
+          loop
+          classNames={{
+            root: classes.carousel,
+            controls: classes.carouselControls,
+            indicator: classes.carouselIndicator,
+          }}
+        >
+          {slides}
+        </Carousel>
       </Card.Section>
+
+      <Group position="apart" mt="lg">
+        <Text fw={500} fz="lg">
+          Forde, Norway
+        </Text>
+
+        <Group spacing={5}>
+          <IconStar size="1rem" />
+          <Text fz="xs" fw={500}>
+            4.78
+          </Text>
+        </Group>
+      </Group>
+   
+      <Text fz="sm" c="dimmed" mt="sm">
+      Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region's culinary heritage. Many dishes incorporate ingredients like olive oil, dates, chickpeas, and a variety of spices, creating a unique and unforgettable taste. Whether you're looking for a satisfying meal or a unique culinary adventure, Arabic cuisine has something to offer for everyone. Indulge in the vibrant flavors and warm hospitality of the Middle East, and experience the magic of Arabic cuisine today.      </Text>
 
       <Group position="apart" mt="md">
         <div>
-          <Text fw={500}>Tesla Model S</Text>
-          <Text fz="xs" c="dimmed">
-            Free recharge at any station
+          <Text fz="xl" span fw={500} className={classes.price}>
+            £20
+          </Text>
+          <Text span fz="sm" c="dimmed">
+            {' '}
+            / item
           </Text>
         </div>
-        <Badge variant="outline">25% off</Badge>
+
+        <Button className='bg-blue-500' radius="md">Buy now</Button>
       </Group>
-
-      <Card.Section className={classes.section} mt="md">
-        <Text fz="sm" c="dimmed" className={classes.label}>
-          Basic configuration
-        </Text>
-
-        <Group spacing={8} mb={-8}>
-          {features}
-        </Group>
-      </Card.Section>
-
-      <Card.Section className={classes.section}>
-        <Group spacing={30}>
-          <div>
-            <Text fz="xl" fw={700} sx={{ lineHeight: 1 }}>
-              $168.00
-            </Text>
-            <Text fz="sm" c="dimmed" fw={500} sx={{ lineHeight: 1 }} mt={3}>
-              per day
-            </Text>
-          </div>
-
-          <Button className='bg-blue-500 hover:bg-blue-100' radius="xl" style={{ flex: 1 }}>
-            Rent now
-          </Button>
-        </Group>
-      </Card.Section>
     </Card>
   );
 }
-
-export default FoodItem
