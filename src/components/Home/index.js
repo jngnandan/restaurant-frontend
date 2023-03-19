@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
-
+import {CardWithStats} from '../CardWithStats'
 
 import Food from '../Food';
 import Footer from '../Footer';
@@ -208,36 +208,13 @@ function Home() {
 <h1 class="block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Taste Arabic Food</h1>
 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
 
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-        {foodList.map(eachitem => (
-          <Link to={`food/${eachitem.id}`}>
-            <div className="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
-            <a href="#" className="block w-full h-full">
-                <img alt="blog photo" src={eachitem.pic} className="object-cover w-full max-h-40"/>
-                <div className="w-full p-4 bg-white dark:bg-gray-800">
-                    <p className="font-medium text-indigo-500 text-md">
-                        Category
-                    </p>
-                    <p className="mb-2 text-xl font-medium text-gray-800 dark:text-white">
-                        {eachitem.name}
-                    </p>
-                    <p className="font-light text-gray-400 dark:text-gray-300 text-md">
-                        The new supercar is here, 543 cv and 140 000$. This is best racing GT about 7 years on...
-                    </p>
-                    <div className="flex flex-wrap items-center mt-4 justify-starts">
-                        <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
-                            #Car
-                        </div>
-                        <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
-                            #Money
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        </Link>
-        ))}
-        </div>
+  <div className='grid grid-cols-3 gap-3'>
+    {foodList.map(eachitem => (
+      <Link to={`food/${eachitem.id}`}>
+            <CardWithStats/>
+      </Link>
+    ))}
+  </div>
 
 {/* Reviews */}
 <h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-xl md:text-5xl lg:text-2xl dark:text-white">Our customer reviews</h1>

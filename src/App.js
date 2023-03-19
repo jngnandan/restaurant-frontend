@@ -12,6 +12,8 @@ import {AuthenticationForm} from './components/AuthenticationForm';
 import Start from './components/Start'
 import {ForgotPassword} from './components/ForgotPassword'
 import {SignupForm} from './components/SignupForm'
+import {CardWithStats} from './components/CardWithStats'
+import {CardsCarousel} from './components/CardsCarousel'
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
         <Route exact path='/start' element={<Start />}/>
         <Route exact path='/forget' element={<ForgotPassword/>}/>
         <Route exact path='/signup' element={<SignupForm/>}/>
-        
+        <Route exact path='/card' element={<CardsCarousel/>}/>
+
       </Routes>
     </BrowserRouter>
   );
