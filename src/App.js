@@ -2,7 +2,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Views/Home';
 import {HeaderMegaMenu} from './components/HeaderMegaMenu'
-// import { CardsCarousel } from './components/FeaturesCard';
 import { FeaturesCard } from './components/HeaderMegaMenu';
 import FoodItem from './components/FoodItem';
 import Profile from './components/Views/Profile';
@@ -28,7 +27,6 @@ function App() {
         <Route path='/login' element={<AuthenticationForm/>}/>
         <Route exact path='/forget' element={<ForgotPassword/>}/>
         <Route exact path='/signup' element={<SignupForm/>}/>
-        <Route exact path='/card' element={<CardsCarousel/>}/>
         <Route exact path='/contact' element={<Contact/>}/>
         <Route exact path='/menu' element={<Menu/>}/>
       </Routes>

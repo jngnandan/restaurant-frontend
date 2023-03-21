@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import {CardWithStats} from '../../CardWithStats'
+import CardsCarousel from '../../CardsCarousel'
 
 import Food from '../../Food';
         
@@ -16,6 +17,9 @@ import { Hero } from '../../Hero';
 
 import { FeaturesCards } from '../../FeatureCards';
 import { Button } from '@mantine/core';
+
+import { Text, Title } from '@mantine/core';
+
 
 const images = [
   {
@@ -123,10 +127,15 @@ function Home() {
 
     return (
         <div>
+        {/* <CardsCarousel/> */}
         <Hero/>
-<div className='m-6 mt-16'>
-<h1 class="block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Taste Arabic Food</h1>
-<p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
+<div className='m-6 lg:mx-12'>
+<Title order={2}>Tasty Arabic Food</Title>
+
+<Text fz="md" fw={400} c="gray" className='my-3 mb-6'>
+Introducing a new way for your brand to reach the creative community
+</Text>
+{/* <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p> */}
 
   <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
     {foodList.map(eachitem => (
@@ -146,7 +155,12 @@ function Home() {
 
 
 {/* Reviews */}
-<h1 class="m-6 block text-xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-3xl dark:text-white">Our customer reviews</h1>
+<Title order={2}>Reviews</Title>
+
+<Text fz="md" fw={400} c="gray" className='my-3 mb-6'>
+Introducing a new way for your brand to reach the creative community
+</Text>
+
 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
   <Reviews title='John' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Hether' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
