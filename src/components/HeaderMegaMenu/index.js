@@ -31,7 +31,10 @@ import {
   IconGardenCart
 } from '@tabler/icons-react';
 
-import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
+
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -126,7 +129,13 @@ const mockdata = [
   },
 ];
 
+
+
 export function HeaderMegaMenu() {
+  const Cookie = Cookies.get()
+  const navigate = useNavigate()
+  console.log(Cookie)
+
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
@@ -220,12 +229,20 @@ export function HeaderMegaMenu() {
           <Group className={classes.hiddenMobile}>
           <IconGardenCart size={24} color='gray'/>
 
+          {!Cookie &&
+              <div>
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
+
             <Link to='/signup'>
-            <Button variant='filled' className='bg-blue-500'>Sign up</Button>
+            <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
+              </div> 
+            }
+            {Cookie &&
+                <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
+            }
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -271,12 +288,21 @@ export function HeaderMegaMenu() {
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
+          {Cookie &&
+              <div>
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
+
             <Link to='/signup'>
             <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
+              </div> 
+            }
+            {Cookie &&
+                <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
+            }
+            
           </Group>
         </ScrollArea>
       </Drawer>
