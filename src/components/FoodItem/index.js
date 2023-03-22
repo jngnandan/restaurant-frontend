@@ -90,11 +90,21 @@ export default function FoodItem() {
   ));
 
   return (
-    <Card radius="md" withBorder padding="xl">
+    <Card radius="sm" withBorder padding="xl">
       <Card.Section>
         <Carousel
           withIndicators
           loop
+          height={220}
+
+          breakpoints={[
+            { maxWidth: 600, height: 400, slideSize: '33.33%' },
+            { maxWidth: 800, height: 400, slideSize: '33.33%' },
+            { maxWidth: 1200, height: 400, slideSize: '33.33%' },
+            {maxWidth: 1600, height: 400, slideSize: '33.33%'},
+
+          ]}
+
           classNames={{
             root: classes.carousel,
             controls: classes.carouselControls,
