@@ -34,7 +34,9 @@ export function AuthenticationForm() {
     Cookies.set('jwt_token', jwt_token, {
       expires: 30
     })
+    
     navigate('/')
+
   }
 
 
