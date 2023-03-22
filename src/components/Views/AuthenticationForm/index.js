@@ -13,8 +13,51 @@ import {
 
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
 
 export function AuthenticationForm() {
+  const [username, setUsername] = useState('rahul')
+  const [password, setPassword] = useState('rahul@2021')
+  const [submitError, setSubmitError] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const onChangeEmail = (e) => {
+    setUsername(e.currentTarget.value)
+  }
+
+  const onChangePassword = (e) => {
+    setPassword(e.currentTarget.value)
+  }
+
+  const onSubmitSuccess = (jwt_token) => {
+    Cookies.set('jwt_token', jwt_token, {
+      expires: 30
+    })
+    navigate('/')
+  }
+
+
+
+  const submitForm = async event => {
+    event.preventDefault()
+    const userDetails = {username, password}
+    const url = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(userDetails),
+    }
+    const response = await fetch(url, options)
+    const data = await response.json()
+    if (response.ok === true){
+      onSubmitSuccess(data)
+    }
+    else{
+      setErrorMessage('Entered details are wrong')
+    }
+    console.log(data.jwt_token)
+  }
+
   const navigate = useNavigate()
 
   return (
@@ -35,8 +78,8 @@ export function AuthenticationForm() {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email" placeholder="you@mantine.dev" required />
-        <PasswordInput label="Password" placeholder="Your password" required mt="md" />
+        <TextInput value={username} onChange={onChangeEmail} label="Password" placeholder="you@mantine.dev" required />
+        <PasswordInput value={password} onChange={onChangePassword} label="Password" placeholder="Your password" required mt="md" />
         <Group position="apart" mt="lg">
           <Checkbox label="Remember me" />
           <Link to='/forget'>
@@ -45,9 +88,13 @@ export function AuthenticationForm() {
           </Anchor>
           </Link>
         </Group>
-        <Button onClick={() => navigate('/')}  className='bg-blue-500' color="blue" variant="filled" fullWidth mt="xl">
+        <Button onClick={submitForm}  className='bg-blue-500' color="blue" variant="filled" fullWidth mt="xl">
            Sign in
       </Button>
+      <Text size='sm' color='red' mt={4}>
+      {errorMessage}
+      </Text>
+
 
       </Paper>
     </Container>
