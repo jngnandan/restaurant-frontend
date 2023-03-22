@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
         <HeaderMegaMenu/>
-      <Routes element={<ProtectedRoute/>}>
+      <Routes element={<AuthenticationForm/>}>
         <Route path='/' element={<Home />}/>
         {/* <Route path='/feature' element={<HeaderMegaMenu/>}/> */}
         <Route path='/Food/:id' element={<FoodItem/>}/>

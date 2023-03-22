@@ -229,8 +229,7 @@ export function HeaderMegaMenu() {
           <Group className={classes.hiddenMobile}>
           <IconGardenCart size={24} color='gray'/>
 
-          {!Cookie &&
-              <div>
+          {/* {!Cookie && */}
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
@@ -238,11 +237,10 @@ export function HeaderMegaMenu() {
             <Link to='/signup'>
             <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
-              </div> 
-            }
-            {Cookie &&
+            {/* } */}
+            {!Cookie &&
                 <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
-            }
+             }
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -288,8 +286,7 @@ export function HeaderMegaMenu() {
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-          {Cookie &&
-              <div>
+          {/* {Cookie && */}
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
@@ -297,11 +294,10 @@ export function HeaderMegaMenu() {
             <Link to='/signup'>
             <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
-              </div> 
-            }
-            {Cookie &&
+            {/* } */}
+            {/* {Cookie && */}
                 <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
-            }
+            {/* } */}
             
           </Group>
         </ScrollArea>
