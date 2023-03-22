@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -93,37 +92,41 @@ function Home() {
     ]
 
     const blogList = [
-      {id: 1,
+      {
+       id: 1,
        name: 'Blog 1',
        pic: 'http://loremflickr.com/1800/1800/Food',
        price: '£10',
       },
-      {id: 2,
-          name: 'Blog 2',
-          pic: 'http://loremflickr.com/1800/1800/Food',
-          price: '£15',
+
+      {
+        id: 2,
+        name: 'Blog 2',
+        pic: 'http://loremflickr.com/1800/1800/Food',
+        price: '£15',
       },
-      {id: 3,
+
+      {
+          id: 3,
           name: 'Blog 3',
           pic: 'http://loremflickr.com/1800/1800/Food',
           price: '£20',
-         },    
+        },    
   ]
+
   const navigate = useNavigate()
 
   const foodOnclick = (props) => {
-
-    // console.log('cool ' + props)
     setLinkId(props)
     // navigate('/food/${props}')
   }
 
   console.log(linkId)
 
-
     return (
         <div>
         <Hero/>
+
 <div className='m-6 mt-16'>
 <h1 class="block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Taste Arabic Food</h1>
 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
@@ -135,12 +138,13 @@ function Home() {
       </Link>
     ))}
   </div>
+
+
   <div className='flex flex-row justify-end items-end mt-3'>
     <Link to='/menu'>
     <Button variant='subtle'>View More</Button>
     </Link>
-    </div>
-
+  </div>
   <FeaturesCards/>
   
 
@@ -154,14 +158,11 @@ function Home() {
   <Reviews title='Levis' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Stewar' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
   <Reviews title='Xavier' description='Arabic cuisine is known for its rich flavors and diverse ingredients. From hearty stews and grilled meats to aromatic rice dishes and savory pastries, the cuisine is a celebration of the region heritage'/>
-
   </div>
    
-</div>
+</div>      
 
-             
-      
-        </div>
+</div>
     );
 }
 
