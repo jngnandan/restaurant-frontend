@@ -309,7 +309,7 @@ export function HeaderMegaMenu() {
             </Link>
             }
             {cookies.jwt_token.jwt_token &&
-                <Button variant='filled' color='red' onClick={() => removeCookie('jwt_token') && toggleDrawer && navigate('/login')} className='bg-red-500 hover:bg-red-800'>Logout</Button>
+                <Button variant='filled' color='red' onClick={() => {removeCookie('jwt_token') ; toggleDrawer()}} className='bg-red-500 hover:bg-red-800'>Logout</Button>
             }
             
           </Group>

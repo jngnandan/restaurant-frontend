@@ -16,6 +16,8 @@ import Contact from './components/Views/Contact'
 import Footer from './components/Footer';
 import Menu from './components/Views/Menu';
 
+import requireAuth from './components/Views/requireAuth';
+
 function App() {
   return (
     <BrowserRouter>
