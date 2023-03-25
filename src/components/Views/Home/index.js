@@ -4,15 +4,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import {CardWithStats} from '../../CardWithStats'
 import CardsCarousel from '../../CardsCarousel'
-// import Cookies from 'js-cookie'
 import { useCookies } from 'react-cookie';
-import { withCookies } from 'react-cookie';
 
 
 import Food from '../../Food';
         
 import Footer from '../../Footer'
 import Reviews from '../../Reviews'
+import requireAuth from '../requireAuth';
 
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -141,7 +140,6 @@ const apiStatusContraints = [
 
 function Home() {
   const [cookies] = useCookies(['jwt_token']);
-  // const Cookie = Cookies.get()
 
   // console.log(cookies.jwt_token.jwt_token); // outputs the value of the cookie
 
@@ -183,22 +181,10 @@ function Home() {
     }
   }
   
-  useEffect(() => {
+  useMemo(() => {
     getProducts()
   }, [])
   
-
-// useEffect(() => {
-//   const jwtToken = cookies.jwt_token.jwt_token;
-//   const headers = { 'Authorization': `${jwtToken}` };
-//   fetch(`https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeCategoryId}&title_search=${searchInput}&rating=${activeRatingId}`, { headers })
-//     .then(response => response.json())
-//     .then(data => console.log(data));
-// }, [activeCategoryId, activeOptionId, activeRatingId, searchInput, cookies.jwt_token.jwt_token]);
-
-
-  // const toke = Cookies.get('jwt_token')
-  // console.log(cookies.jwt_token.jwt_token)
 
 
     return (
@@ -249,4 +235,4 @@ Introducing a new way for your brand to reach the creative community
     );
 }
 
-export default Home;
+export default requireAuth(Home);

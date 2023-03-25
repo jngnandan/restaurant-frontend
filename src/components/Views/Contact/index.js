@@ -13,6 +13,8 @@ import {
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 // import { ContactIconsList } from '../ContactIcons/ContactIcons';
 
+import requireAuth from '../requireAuth';
+
 const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
@@ -79,7 +81,7 @@ const useStyles = createStyles((theme) => ({
 
 const social = [FaTwitter, FaYoutube, FaInstagram];
 
-export function Contact() {
+const Contact = () => {
   const { classes } = useStyles();
 
   const icons = social.map((Icon, index) => (
@@ -131,3 +133,5 @@ export function Contact() {
     </div>
   );
 }
+
+export default requireAuth(Contact)

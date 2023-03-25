@@ -11,27 +11,29 @@ import {ForgotPassword} from './components/Views/ForgotPassword'
 import {SignupForm} from './components/Views/SignupForm'
 import {CardWithStats} from './components/CardWithStats'
 import {CardsCarousel} from './components/CardsCarousel'
-import {Contact} from './components/Views/Contact';
+import Contact from './components/Views/Contact'
+
 import Footer from './components/Footer';
 import Menu from './components/Views/Menu';
 
 function App() {
   return (
     <BrowserRouter>
-        <HeaderMegaMenu/>
-      <Routes element={<AuthenticationForm/>}>
-        <Route path='/' element={<Home />}/>
-        {/* <Route path='/feature' element={<HeaderMegaMenu/>}/> */}
-        <Route path='/Food/:id' element={<FoodItem/>}/>
-        <Route path='/profile' element={<Profile/>}/>
-        <Route path='/login' element={<AuthenticationForm/>}/>
-        <Route exact path='/forget' element={<ForgotPassword/>}/>
-        <Route exact path='/signup' element={<SignupForm/>}/>
-        <Route exact path='/contact' element={<Contact/>}/>
-        <Route exact path='/menu' element={<Menu/>}/>
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+    <HeaderMegaMenu />
+    <Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path='/feature' element={<HeaderMegaMenu />} />
+      <Route path='/Food/:id' element={<FoodItem />} />
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/login' element={<AuthenticationForm />} />
+      <Route exact path='/forget' element={<ForgotPassword />} />
+      <Route exact path='/signup' element={<SignupForm />} />
+      <Route exact path='/contact' element={<Contact />} />
+      <Route exact path='/menu' element={<Menu />} />
+    </Routes>
+    <Footer />
+  </BrowserRouter>
+
   );
 }
 

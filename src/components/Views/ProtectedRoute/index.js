@@ -1,12 +1,19 @@
-import {Redirect, Route} from 'react-router-dom'
-import Cookie from 'js-cookie'
+import React from 'react';
+import { Route, Redirect, Navigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
-const ProtectedRoute = props => {
-  const token = Cookie.get('jwt_token')
-  if (token === undefined) {
-    return <Redirect to="/login" />
+
+const ProtectedRoutes=({children })=>{
+  const [cookies] = useCookies(['jwt_token']);
+
+  if (cookies.jwt_token) {
+    return children;
   }
-  return <Route {...props} />
-}
+  else {
+    <Navigate to='/login'/>
+  }
 
-export default ProtectedRoute
+  // return isLogged?<Outlet/>:<Navigate to="/login"/>
+}
+export default ProtectedRoutes;
+

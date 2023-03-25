@@ -31,7 +31,8 @@ import {
   IconGardenCart
 } from '@tabler/icons-react';
 
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
 
 
 import { Link, Navigate, useNavigate } from 'react-router-dom';
@@ -132,7 +133,9 @@ const mockdata = [
 
 
 export function HeaderMegaMenu() {
-  const Cookie = Cookies.get()
+  const [cookies, removeCookie] = useCookies(['jwt_token']);
+
+  // const Cookie = Cookies.get()
   const navigate = useNavigate()
   // console.log(Cookie)
 
@@ -167,8 +170,8 @@ export function HeaderMegaMenu() {
           </Link>
 
           <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
-            <a href="/" className={classes.link}>
-              Home
+            <a href="/menu" className={classes.link}>
+              Menu
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
@@ -230,17 +233,25 @@ export function HeaderMegaMenu() {
           <IconGardenCart size={24} color='gray'/>
 
           {/* {!Cookie && */}
+           
+
+            {!cookies.jwt_token.jwt_token &&
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
-            </Link>
+            </Link>      
+          }
 
-            <Link to='/signup'>
+            {!cookies.jwt_token.jwt_token &&
+            
+              <Link to='/signup'>
             <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
-            </Link>
-            {/* } */}
-            {!Cookie &&
-                <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
-             }
+            </Link>            }
+            
+
+            {cookies.jwt_token.jwt_token &&
+                <Button variant='filled' color='red' onClick={() => removeCookie('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>            
+            }
+             
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -286,18 +297,20 @@ export function HeaderMegaMenu() {
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-          {/* {Cookie && */}
+          {!cookies.jwt_token.jwt_token &&
             <Link to='/login'>
             <Button onClick={toggleDrawer} variant="default">Log in</Button>
             </Link>
+            }
 
+          {!cookies.jwt_token.jwt_token &&
             <Link to='/signup'>
             <Button onClick={toggleDrawer} className='bg-blue-500'>Sign up</Button>
             </Link>
-            {/* } */}
-            {/* {Cookie && */}
-                <Button variant='filled' color='red' onClick={() => Cookies.remove('jwt_token') && toggleDrawer} className='bg-red-500 hover:bg-red-800'>Logout</Button>
-            {/* } */}
+            }
+            {cookies.jwt_token.jwt_token &&
+                <Button variant='filled' color='red' onClick={() => removeCookie('jwt_token') && toggleDrawer && navigate('/login')} className='bg-red-500 hover:bg-red-800'>Logout</Button>
+            }
             
           </Group>
         </ScrollArea>

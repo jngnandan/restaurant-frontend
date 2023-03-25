@@ -2,6 +2,7 @@ import { createStyles, Image, Card, Text, Group, Button, getStylesRef, rem } fro
 import { Carousel } from '@mantine/carousel';
 import { IconStar } from '@tabler/icons-react';
 import Tab from '../../Tab';
+import requireAuth from '../requireAuth';
 
 const useStyles = createStyles((theme) => ({
   price: {
@@ -41,7 +42,7 @@ const images = [
     'https://source.unsplash.com/800x400/?food,fastfood',
   ];
 
-export default function Menu() {
+function Menu() {
   const { classes } = useStyles();
 
   const slides = images.map((image) => (
@@ -104,3 +105,5 @@ export default function Menu() {
     </Card>
   );
 }
+
+export default requireAuth(Menu)
