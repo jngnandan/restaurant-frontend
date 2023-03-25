@@ -6,6 +6,8 @@ const requireAuth = (WrappedComponent) => {
   const AuthenticatedComponent = (props) => {
     const [cookies] = useCookies(['jwt_token']);
     const navigate = useNavigate();
+
+    console.log('crazy', cookies.jwt_token.jwt_token);
     
     useEffect(() => {
       if (!cookies.jwt_token.jwt_token) {
