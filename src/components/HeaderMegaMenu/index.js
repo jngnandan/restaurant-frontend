@@ -134,7 +134,7 @@ const mockdata = [
 export function HeaderMegaMenu() {
   const Cookie = Cookies.get()
   const navigate = useNavigate()
-  console.log(Cookie)
+  // console.log(Cookie)
 
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);

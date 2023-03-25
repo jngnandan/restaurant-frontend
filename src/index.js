@@ -4,13 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { CartContext, CartContextProvider } from './context/CartContext';
+import { CookiesProvider } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <CartContextProvider> */}
+    <CookiesProvider>
+
     <App />
     {/* </CartContextProvider> */}
+    </CookiesProvider>
   </React.StrictMode>
 );
 

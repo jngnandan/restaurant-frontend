@@ -10,10 +10,13 @@ import {
   Group,
   Button,
 } from '@mantine/core';
+import { useCookies } from 'react-cookie'
+
 
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+
 import { useState } from 'react';
 
 export function AuthenticationForm() {
@@ -22,6 +25,8 @@ export function AuthenticationForm() {
   const [submitError, setSubmitError] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
+  const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);  
+  
   const onChangeEmail = (e) => {
     setUsername(e.currentTarget.value)
   }
@@ -31,13 +36,18 @@ export function AuthenticationForm() {
   }
 
   const onSubmitSuccess = (jwt_token) => {
-    Cookies.set('jwt_token', jwt_token, {
-      expires: 30
-    })
-    
-    navigate('/')
+  //   Cookies.set('jwtToken', jwt_token, 
+  //   {
+  //     expires: 30,
+  //     path: '/',
+  //   }, 
+  //  )
+  setCookie('jwt_token', jwt_token, { path: '/' });
 
+    navigate('/')
   }
+
+  // console.log('cool ' + cookies)
 
 
 
@@ -57,7 +67,7 @@ export function AuthenticationForm() {
     else{
       setErrorMessage('Entered details are wrong')
     }
-    console.log(data.jwt_token)
+    // console.log(data.jwt_token)
   }
 
   const navigate = useNavigate()
