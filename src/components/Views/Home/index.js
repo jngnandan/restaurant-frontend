@@ -150,6 +150,8 @@ function Home() {
   const [activeCategoryId, setActiveCategoryId] = useState()
   const [activeRatingId, setActiveRatingId] = useState()
   const [searchInput, setSearchInput] = useState()
+  const [products, setProducts] = useState([])
+
   const navigate = useNavigate()
 
   const foodOnclick = (props) => {
@@ -177,7 +179,8 @@ function Home() {
     
     if(response.ok){
       const data = await response.json()
-      console.log(data)
+      // console.log(data)
+      setProducts(data.prime_deals)
     }
   }
   
@@ -185,7 +188,7 @@ function Home() {
     getProducts()
   }, [])
   
-
+// console.log(products.prime_deals)
 
     return (
         <div>
@@ -209,8 +212,30 @@ function Home() {
     <Button variant='subtle'>View More</Button>
     </Link>
   </div>
-  <FeaturesCards/>
   
+  {/* Second Products */}
+  <div>
+  <h1 class="mt-8 block text-xl font-bold text-gray-800 sm:text-2xl md:text-xl lg:text-2xl dark:text-white">Cool Food</h1>
+<p class="mt-3 text-lg text-gray-800 dark:text-gray-400 mb-8">Introducing a new way for your brand to reach the creative community.</p>
+
+  <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
+    {products.map(eachitem => (
+      <Link to={`food/${eachitem.id}`}>
+            <CardWithStats title={eachitem.title} 
+            pic={eachitem.image_url} author={eachitem.price} comments={eachitem.price} views={eachitem.total_reviews}
+            />
+      </Link>
+    ))}
+  </div>
+  <div className='flex flex-row justify-end items-end mt-3'>
+    <Link to='/menu'>
+    <Button variant='subtle'>View More</Button>
+    </Link>
+  </div>
+  </div>
+
+  {/* Third section */}
+  <FeaturesCards/>
 
 
 {/* Reviews */}
